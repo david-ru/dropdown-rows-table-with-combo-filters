@@ -1,0 +1,78 @@
+<div class="table-container">
+   <div class="example-loading-shade"
+        *ngIf="isLoadingResults || isRateLimitReached">
+     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+     <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+       GitHub's API rate limit has been reached. It will be reset in one minute.
+     </div>
+   </div>
+ 
+   <div class="example-table-container">
+    <mat-table #table [dataSource]="dataSource" matSort class="table">
+      <ng-container matColumnDef="holderName">
+        <mat-header-cell *matHeaderCellDef class="column-name"> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.card.holderName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="brandId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="column-name"> Brand </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.brandId}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastFourDigits">
+        <mat-header-cell *matHeaderCellDef class="column-name"> Last 4 digits </mat-header-cell>
+        <mat-cell *matCellDef="let element"> XXXX {{element.card.lastFourDigits}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="column-name"> Transaction type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.action}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="column-name"> Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="currencyCode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="column-name"> Currency </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.currencyCode}} </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		  <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row" [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl">
+		  </mat-row>
+      <!--tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr-->
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 100]"></mat-paginator>
+
+   </div>
+
+</div>
+
+<ng-template #tpl let-element>
+  <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden">
+    <table id="details-table">
+      <tr>
+        <td class="hidden-details-title first-column-title"><label>ID: </label></td>
+        <td class="hidden-details">{{element.id}}</td>
+        <td class="hidden-details-title second-column-title"><label>First 6 digits: </label></td>
+        <td class="hidden-details">{{element.card.firstSixDigits}} XXXX</td>
+      </tr>
+      <tr>
+        <td class="hidden-details-title first-column-title"><label>Tracking code: </label></td>
+        <td class="hidden-details">{{element.trackingCode}}</td>
+        <td class="hidden-details-title second-column-title"><label>Expiry month: </label></td>
+        <td class="hidden-details">{{element.card.expiryMonth}}</td>
+      </tr>
+      <tr>
+        <td class="hidden-details-title first-column-title"><label>Brand ID: </label></td>
+        <td class="hidden-details">{{element.brandId}}</td>
+        <td class="hidden-details-title second-column-title"><label>Expiry year: </label></td>
+        <td class="hidden-details">{{element.card.expiryYear}}</td>
+      </tr>
+    </table>
+  </div>
+</ng-template>

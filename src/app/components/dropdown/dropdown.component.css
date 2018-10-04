@@ -1,0 +1,102 @@
+.filter-dropdown {
+  margin-right: 1em;
+  height: 2.27rem;
+  border-color: #1db9de;
+  font-weight: bold;
+  color: #213d8f;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  height: 2.27rem;
+  border-color: #1db9de;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: bold;
+  text-align: left;
+  color: #213d8f;
+  background-color: #ffffff;
+  min-width: 11.3rem;
+  font-family: 'Source Sans Pro semi-bold', sans-serif;
+  padding-right: 18%;
+  font-size: 14px;
+  padding-left: 9%;
+}
+
+/* The container <span> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 2.5%;
+}
+
+.dropdown:after {
+  content: '\f078';
+  font: normal normal normal 17px/1 FontAwesome;
+  color: #213d8f;
+  right: 5%;
+  padding: 5% 0% 0% 0%;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 100%;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-hide {
+  display: none;
+}
+.dropdown-content-show {
+  display: block;
+}
+.dropdown-content-show > li {
+  color: #909ec7;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  padding-left: 10%;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+  font-family: 'Source Sans Pro semi-bold', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Links inside the dropdown */
+.dropdown-content li {
+  color: #909ec7;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  padding-left: 10%;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+  font-family: 'Source Sans Pro semi-bold', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content li:hover {
+  background-color: #e8ebf3;
+  color: #213d8f;
+  font-weight: bold;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #ffffff;}
+
+/* Change arrow direction when the dropdown is open */
+.dropdown:hover:after {
+  content: '\f077';
+}

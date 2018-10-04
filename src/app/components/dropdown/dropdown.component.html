@@ -1,0 +1,24 @@
+
+<!--mat-form-field class="filter-dropdown">
+   <mat-select [(value)]="select" (selectionChange)="onChange($event);">
+     <mat-option *ngFor="let item of values" [value]="item.value">
+       {{item.viewValue}}
+     </mat-option>
+   </mat-select>
+ </mat-form-field-->
+  <!--span class="select-wrapper">
+    <select [(value)]="select" id="category" class="filter-dropdown" (selectionChange)="onChange($event);">
+      <option *ngFor="let item of values" [value]="item.value">
+        {{item.viewValue}}
+      </option>
+    </select>
+  </span-->
+<span class="dropdown">
+  <button class="dropbtn">{{this.selectedValue}}</button>
+  <!--span [ngClass]="show ? 'dropdown-content-hide' : 'dropdown-content-show'"-->
+  <span class="dropdown-content">
+      <li *ngFor="let item of values" (click)="onChange(item.value, item.viewValue);">
+        {{item.viewValue}}
+      </li>
+  </span>
+</span>

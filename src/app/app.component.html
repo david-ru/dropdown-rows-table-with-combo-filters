@@ -1,0 +1,14 @@
+<div class="frame">
+  <div class="filter">
+    <dru-dropdown #actionDropDown [values]=actions select="" (selectedEvent)="onSelected($event)"></dru-dropdown>
+    <dru-dropdown #currencyDropDown [values]=currenyCodes select="" (selectedEvent)="onSelected($event)"></dru-dropdown>
+    <dru-dropdown #sortByDateDropDown [values]=sortByDate select="" (selectedEvent)="onSelected($event)"></dru-dropdown>
+    <button mat-flat-button class="filter-button" (click)="onClick()">Search</button>
+  </div>
+
+  <dru-table #transactionsTable></dru-table>
+</div>
+
+
+
+
